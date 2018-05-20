@@ -1,0 +1,82 @@
+/*
+ * Komunumo – Open Source Community Manager
+ * Copyright (C) 2018 Java User Group Switzerland
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+buildscript {
+    ext {
+        kotlinVersion = '1.2.51'
+        springBootVersion = '2.0.3.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-spring'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'org.komunumo'
+version = '1.0.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+compileKotlin {
+    kotlinOptions {
+        freeCompilerArgs = ["-Xjsr305=strict"]
+        jvmTarget = "1.8"
+    }
+}
+
+compileTestKotlin {
+    kotlinOptions {
+        freeCompilerArgs = ["-Xjsr305=strict"]
+        jvmTarget = "1.8"
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+    compile('org.springframework.boot:spring-boot-starter-mustache')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('com.fasterxml.jackson.module:jackson-module-kotlin')
+    compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    compile("org.jetbrains.kotlin:kotlin-reflect")
+    testCompile('org.springframework.boot:spring-boot-starter-test') {
+        exclude module: 'junit'
+    }
+    testCompile('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
+    testImplementation('org.junit.jupiter:junit-jupiter-api')
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine')
+    kapt('org.springframework.boot:spring-boot-configuration-processor')
+}
+
+test {
+    useJUnitPlatform()
+}
