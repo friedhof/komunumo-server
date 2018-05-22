@@ -1,6 +1,6 @@
 = _Komunumo Server_
 
-image:https://travis-ci.org/komunumo/komunumo-server.svg?branch=master[Build Status,link=https://travis-ci.org/komunumo/komunumo-server] image:https://badge.waffle.io/komunumo/komunumo-server.png?label=backlog&title=backlog[Stories in Backlog,link=http://waffle.io/komunumo/komunumo-server] image:https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg[gitmoji,link=https://gitmoji.carloscuesta.me]
+image:https://masterminds.github.io/stability/experimental.svg[Stability: Experimental,link=https://masterminds.github.io/stability/experimental.html] image:https://travis-ci.org/komunumo/komunumo-server.svg?branch=master[Build Status,link=https://travis-ci.org/komunumo/komunumo-server] image:https://badge.waffle.io/komunumo/komunumo-server.png?label=backlog&title=backlog[Stories in Backlog,link=http://waffle.io/komunumo/komunumo-server] image:https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg[gitmoji,link=https://gitmoji.carloscuesta.me]
 
 *Open Source Community Manager*
 
